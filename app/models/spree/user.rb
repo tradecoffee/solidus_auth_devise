@@ -8,7 +8,9 @@ module Spree
 
     acts_as_paranoid
     after_destroy :scramble_email_and_password
-    before_update { generate_spree_api_key if will_save_change_to_encrypted_password? && spree_api_key.present? }
+    
+    # Commented out by HH on 12 Jul 2018
+    #before_update { generate_spree_api_key if will_save_change_to_encrypted_password? && spree_api_key.present? }
 
     has_many :orders
 
